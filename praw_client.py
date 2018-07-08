@@ -1,11 +1,13 @@
 import praw
+import time
 from decouple import config
 
 def listen_for_new_posts(subreddit, queue):
-    count = 0
-    for submission in subreddit.stream.submissions():
-        count += 1
-        if count > 100: # ignore the first 100 posts
+    start_time = time.time()
+    for submission in subreddit.stream.submissions(pause_after=0):
+        if submission is None:
+            continue
+        if submission.created_utc > start_time:
             queue.put({"title": submission.title, 
                         "url": submission.url, 
                         "reddit_url": submission.shortlink, 

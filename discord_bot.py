@@ -22,7 +22,7 @@ async def check_queue(q):
                                     url=submission['url'],
                                     description=submission['reddit_url'])
                 await client.send_message(channel, embed=em)
-            except Exception as e:
+            except Exception as e: # if queue is empty
                 pass
         await asyncio.sleep(10) # check every 10 seconds
 
