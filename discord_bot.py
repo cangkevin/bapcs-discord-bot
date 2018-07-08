@@ -24,7 +24,7 @@ async def check_queue(q):
                 await client.send_message(channel, embed=em)
             except Exception as e:
                 pass
-        await asyncio.sleep(5) # check every 5 seconds
+        await asyncio.sleep(10) # check every 10 seconds
 
 
 @client.event
