@@ -1,6 +1,6 @@
 import praw
 import time
-from decouple import config
+from simple_settings import settings
 
 def listen_for_new_posts(subreddit, queue):
     start_time = time.time()
@@ -15,11 +15,11 @@ def listen_for_new_posts(subreddit, queue):
 
 
 def start(queue):
-    reddit = praw.Reddit(client_id = config('CLIENT_ID'),
-                     client_secret = config('CLIENT_SECRET'),
-                     username = config('REDDIT_USERNAME'),
-                     password = config('REDDIT_PASSWORD'),
-                     user_agent = config('USER_AGENT'))
+    reddit = praw.Reddit(client_id = settings.CLIENT_ID,
+                     client_secret = settings.CLIENT_SECRET,
+                     username = settings.REDDIT_USERNAME,
+                     password = settings.REDDIT_PASSWORD,
+                     user_agent = settings.USER_AGENT)
                      
     sales_subreddit = reddit.subreddit('buildapcsales')
     listen_for_new_posts(sales_subreddit, queue) # indefinite loop

@@ -9,7 +9,8 @@ pylint = "*"
 [packages]
 praw = "*"
 "discord.py" = "*"
-python-decouple = "*"
+python-dotenv = "*"
+simple-settings = "*"
 
 [requires]
 python_version = "3.6"
