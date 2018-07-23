@@ -1,12 +1,13 @@
 language: python
+cache: pip
 python:
 - '3.6'
 install:
-- pip install -r requirements
+- pip install -r requirements.txt
 script:
 - python -m unittest tests/*
 after_success:
-- echo "Test Success - Branch($TRAVIS_BRANCH)"
+- echo "Test Success! - Branch ($TRAVIS_BRANCH)"
 env:
   global:
   - secure: OoWHMkgH8KFbbfUGQ+SnvHVPiEXzSvkxoddO7C0oRhMpXy+pnUZ63YGMQFVbg8fVjuZMglfh94z63kQyZN/ZIRtYI6AMzL01bhukD5UicsgC6ZhtKEln1FXJNA8ehNd3ovVmJ5K3K+QYqccXlClk6ZYsDoPe91P2be2SEd+0BrcNnjITyP6wmJSOvg+L8LiD+60hHPl3Pkol7pIRmVMuLxb7Hc2oARepgk7Q65FBq+2QR7f5dXpFlJV+1PTP8Snv0TEQyU5/8WFQZV+8JYhIjmg1J4Qe2mRegVfsZUeOkcZGDwEtPI71zc9pn11PHm1xlUcW/DvMUYPiDFuYYfaueYCP3t+H8emu46tZ3mgNCgxByENMyxNoHdiwO+7NlP+opFnjYGViTKYiKUHTSlusX7BXBYowD0WowzbemEz6HrBv2jTKAKgN8R6nwarOc9VJLMY7VEDBZNkCrjzjlZz7Ud6orx9q0/kze0jYfmg/nhnpIvIB1sa9of02A+QkCIwXJyyPVfCkAhLsxh3SQg39l6j5HlnRdipxhjA7hXONH3FZfI6x9FMbN421MwBbs6OA5wLVjEPVBB/JqDJuH3WfM8MfK4bV4QzxJ0P3IZT0IfC4BWWeDTA+xcHqoozrNo7G0kBHGVENMY4Wj+VhKT0z8WlrhK96q+cwFvb12SZli6Y=
